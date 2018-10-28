@@ -1,32 +1,36 @@
-// Creating an exprting module:
+module.exports.groupAdultsByAgeRange = function groupAdultsByAgeRange(people=[]) {
+    const result = {};
+    const result1 = people.filter(grp => {
+        return grp.age <= 20;
+    });
+    const result2 = people.filter(grp => {
+        return (grp.age <= 30 && grp.age >20);
+    });
+    const result3 = people.filter(grp => {
+        return (grp.age <= 40 && grp.age >30);
+    });
+    const result4 = people.filter(grp => {
+        return (grp.age <= 50 && grp.age >40);
+    });
+    const result5 = people.filter(grp => {
+        return grp.age >= 51;
+    });
 
-module.exports.groupAdultsByAgeRange = function groupAdultsByAgeRange(people) {
-  const result = {"20 and younger": { between: 0, and: 20 }};
-  const result1 = {"21-30": { between: 21, and: 30 }};
-  const result2 = {"31-40": { between: 31, and: 40 }};
-  const result3 = {"41-50": { between: 41, and: 50 }};
-  const result4 = {"51 and older": { between: 51, and: older }};
-
-let filtered = groupAdultsByAgeRange.filter(val => {
-  return val.age <= 20;
-});
-
-let filtered1 = groupAdultsByAgeRange.filter(val => {
-  return val.age <= 30 && val.age > 20;
-});
-
-let filtered2 = groupAdultsByAgeRange.filter(val => {
-  return val.age <= 40 && val.age > 30;
-});
-
-let filtered3 = groupAdultsByAgeRange.filter(val => {
-  return val.age <= 50 && val.age > 40;
-});
-
-let filtered4 = groupAdultsByAgeRange.filter(val => {
-  return val.age >= 51;
-})
-
-
-
-
+    if (result1.length>0){
+        result["20 and younger"]=result1;
+    }   
+    if (result2.length>0){
+        result["21-30"]=result2;
+    }   
+    if (result3.length>0){
+        result["31-40"]=result3;
+    }   
+    if (result4.length>0){
+        result["41-50"]=result4;
+    }   
+    if (result5.length>0){
+        result["51 and older"]=result5;
+    }   
+    return result
+};
+  

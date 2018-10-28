@@ -27,19 +27,19 @@ class ShoppingCart {
   getItems() {
     return this.items;
   }
+
+  clear(){
+    this.items = [];
+    return this.items;
+  }
+
+  total()  {
+    return this.items
+      .map(item => item.pricePerUnit * item.quantity)
+      .reduce((acc, item) => acc + item, 0);
+  }
+  
 }
 
-clear();
-{
-  this.items = [];
-  return this.items;
-}
-
-total();
-{
-  return this.items
-    .map(item => item.pricePerUnit * item.quantity)
-    .reduce((acc, item) => acc + item, 0);
-}
 
 module.exports = ShoppingCart;
